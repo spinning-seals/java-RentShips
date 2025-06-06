@@ -10,7 +10,7 @@ public class Main {
 
         myFleet.addNewShip(ShipType.Y_WING, "Jar Jar Binks");
 
-        myFleet.addNewShip(ShipType.A_WING, "Mace Windu");
+        myFleet.addNewShip(ShipType.A_WING, "Milan Vucic");
 
         myFleet.addNewShip(ShipType.MILLENNIUM_FALCON, "Han Solo");
 
