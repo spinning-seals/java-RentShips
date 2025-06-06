@@ -6,13 +6,13 @@ public class Main {
         ShipFleetManager myFleet = ShipFleetManager.getInstance();
         myFleet.addNewShip(ShipType.X_WING, "Tomasz Mildner");
 
-        myFleet.addNewShip(ShipType.X_WING, "Nathan Mildner");
+        myFleet.addNewShip(ShipType.X_WING, "Luke Skywalker");
 
-        myFleet.addNewShip(ShipType.Y_WING, "Katarzyna Skindzier");
+        myFleet.addNewShip(ShipType.Y_WING, "Jar Jar Binks");
 
-        myFleet.addNewShip(ShipType.A_WING, "Tadeusz Knopik");
+        myFleet.addNewShip(ShipType.A_WING, "Mace Windu");
 
-        myFleet.addNewShip(ShipType.MILLENNIUM_FALCON, "Nero Trzy Dwa Zero");
+        myFleet.addNewShip(ShipType.MILLENNIUM_FALCON, "Han Solo");
 
 
         myFleet.listAllShips();
