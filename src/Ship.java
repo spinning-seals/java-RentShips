@@ -27,4 +27,24 @@ public class Ship
                 "\nSTATUS: " + status +
                 "\n";
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public ShipType getType() {
+        return type;
+    }
+
+    public String getPilot() {
+        return pilot;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public ShipStatus getStatus() {
+        return status;
+    }
 }
