@@ -5,6 +5,8 @@ import java.util.Scanner;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+
+
     public static void main(String[] args) {
         ShipFleetManager myFleet = ShipFleetManager.getInstance();
 //        myFleet.addNewShip(ShipType.X_WING, "Tomasz Mildner", ShipStatus.RENTED);
@@ -15,36 +17,25 @@ public class Main {
 //
 //        myFleet.addNewShip(ShipType.A_WING, "N/A", ShipStatus.FREE);
 
-       // myFleet.addNewShip(ShipType.MILLENNIUM_FALCON, "N/A", ShipStatus.FREE);
-        Scanner scanMenuChoice = new Scanner(System.in);
+        // myFleet.addNewShip(ShipType.MILLENNIUM_FALCON, "N/A", ShipStatus.FREE);
+
+
         boolean programRunning = true;
         while (programRunning) {
-
-            System.out.println("Greetings, what would you like to do?");
-            System.out.println("1: Add new ship");
-            System.out.println("2: List all ships");
-            System.out.println("3: List free ships");
-            System.out.println("4: List rented ships");
-            System.out.println("5: Rent a ship");
-            System.out.println("6: Return a ship");
-            System.out.println("7: Exit");
-
-            System.out.println("\nChoose an option:");
-            String scanMenuChoiceInput = scanMenuChoice.nextLine();
+            printMainMenu();
+            Scanner scanMainMenuChoice = new Scanner(System.in);
+            String scanMainMenuChoiceInput = scanMainMenuChoice.nextLine();
 
 
-            switch (scanMenuChoiceInput) {
+            switch (scanMainMenuChoiceInput) {
                 case "1":
-                    int i = 1;
-                    for (ShipType type : ShipType.values()) {
-                        System.out.println(i + ". " + type);
-                        i++;
-                    }
-                    System.out.println("Choose a ship type!");
-                    Scanner scanShipChoice = new Scanner(System.in);
-                    String scanShipChoiceInput = scanShipChoice.nextLine();
+
                     boolean choosingShip = true;
                     while (choosingShip) {
+                        printShipMenu();
+                        Scanner scanShipChoice = new Scanner(System.in);
+                        String scanShipChoiceInput = scanShipChoice.nextLine();
+
                         switch (scanShipChoiceInput) {
                             case "1":
                                 System.out.println("New X-Wing added to fleet.");
@@ -83,7 +74,27 @@ public class Main {
                     myFleet.listShipsByStatus(ShipStatus.RENTED);
                     break;
                 case "5":
-                    System.out.println("You rent a ship.");
+                    boolean chooseShipRental = true;
+                    while(chooseShipRental) {
+                        System.out.println("All available ships:");
+                        myFleet.listShipsByStatus(ShipStatus.FREE);
+                        Scanner scanRentedShipsChoice = new Scanner(System.in);
+                        System.out.println("Enter ship ID");
+                        String canRentedShipsChoiceID = scanRentedShipsChoice.nextLine();
+
+                        if(myFleet.shipFleet.containsKey(canRentedShipsChoiceID)) {
+                            System.out.println("SHIP RENTED");
+                            break;
+                        }
+                        else
+                        {
+                            System.out.println("NOPE");
+
+                        }
+
+
+
+                    }
                     break;
                 case "6":
                     System.out.println("You return a ship.");
@@ -98,5 +109,33 @@ public class Main {
             }
         }
 
+
+    }
+
+    public static void printMainMenu() {
+        System.out.println("Greetings, what would you like to do?");
+        System.out.println("1: Add new ship");
+        System.out.println("2: List all ships");
+        System.out.println("3: List free ships");
+        System.out.println("4: List rented ships");
+        System.out.println("5: Rent a ship");
+        System.out.println("6: Return a ship");
+        System.out.println("7: Exit");
+
+        System.out.println("\nChoose an option:");
+    }
+
+    public static void printShipMenu() {
+        int i = 1;
+        for (ShipType type : ShipType.values()) {
+            System.out.println(i + ". " + type);
+            i++;
+        }
+        System.out.println("Choose a ship type!");
     }
 }
+
+
+
+
+
