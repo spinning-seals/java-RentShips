@@ -13,7 +13,7 @@ public class Main {
 //
 //        myFleet.addNewShip(ShipType.X_WING, "Luke Skywalker", ShipStatus.RENTED);
 //
-//        myFleet.addNewShip(ShipType.Y_WING, "Jar Jar Binks", ShipStatus.RENTED);
+//        I know myFleet.addNewShip(ShipType.Y_WING, "Jar Jar Binks", ShipStatus.RENTED);
 //
 //        myFleet.addNewShip(ShipType.A_WING, "N/A", ShipStatus.FREE);
 
