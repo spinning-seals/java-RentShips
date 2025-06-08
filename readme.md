@@ -15,20 +15,7 @@ Easier future implementation of removal, filtering, or updates
 
 A List is great for ordered collections, but a Map is the right choice when ID-based retrieval and uniqueness matter.
 
-*Why use two singletons?
-1. ShipFleetManager –> Fleet Commander
-Responsible for adding, storing, and listing ships. There's only one fleet, and it needs one central manager.
-
-2. ShipIdGenerator – Identifier Master
-Generates unique IDs per ship type (XW, YW, etc.) using internal counters. By separating this logic:
-
-You avoid cluttering the fleet manager with formatting logic
-
-You gain reusability and testability
-
-You enable flexible ID logic in the future (e.g., date-based IDs, pilot-coded IDs)
-
-* Why make them singletons?
+Why USE SINGLETONS?
 Both classes manage shared global state:
 
 The ShipFleetManager keeps the fleet in memory
@@ -42,3 +29,16 @@ Centralized control
 No accidental duplication
 
 Easy access without passing objects everywhere
+
+WHY USE TWO SINGLETONS?
+1. ShipFleetManager –> Fleet Commander
+Responsible for adding, storing, and listing ships. There's only one fleet, and it needs one central manager.
+
+2. ShipIdGenerator – Identifier Master
+Generates unique IDs per ship type (XW, YW, etc.) using internal counters. By separating this logic:
+
+You avoid cluttering the fleet manager with formatting logic
+
+You gain reusability and testability
+
+You enable flexible ID logic in the future (e.g., date-based IDs, pilot-coded IDs)
