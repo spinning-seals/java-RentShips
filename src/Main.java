@@ -9,17 +9,6 @@ public class Main {
 
     public static void main(String[] args) {
         ShipFleetManager myFleet = ShipFleetManager.getInstance();
-//        myFleet.addNewShip(ShipType.X_WING, "Tomasz Mildner", ShipStatus.RENTED);
-//
-//        myFleet.addNewShip(ShipType.X_WING, "Luke Skywalker", ShipStatus.RENTED);
-//
-//        I know myFleet.addNewShip(ShipType.Y_WING, "Jar Jar Binks", ShipStatus.RENTED);
-//
-//        myFleet.addNewShip(ShipType.A_WING, "N/A", ShipStatus.FREE);
-
-        // myFleet.addNewShip(ShipType.MILLENNIUM_FALCON, "N/A", ShipStatus.FREE);
-
-
         boolean programRunning = true;
         while (programRunning) {
             printMainMenu();
@@ -29,7 +18,6 @@ public class Main {
 
             switch (scanMainMenuChoiceInput) {
                 case "1":
-
                     boolean choosingShip = true;
                     while (choosingShip) {
                         printShipMenu();
@@ -62,8 +50,6 @@ public class Main {
                         }
                     }
                     break;
-
-
                 case "2":
                     myFleet.listAllShips();
                     break;
@@ -84,16 +70,20 @@ public class Main {
 
                         if(myFleet.shipFleet.containsKey(canRentedShipsChoiceID)) {
                             System.out.println("SHIP RENTED");
+                            Ship rentedShip = myFleet.shipFleet.get(canRentedShipsChoiceID);
+                            rentedShip.setStatus(ShipStatus.RENTED);
+                            System.out.println("Who will rent the "+rentedShip+"? Enter first name and last name!");
+                            Scanner scanPilotName = new Scanner(System.in);
+                            String pilotName = scanPilotName.nextLine();
+                            rentedShip.setPilot(pilotName);
+                            System.out.println(rentedShip + " rented by: "+pilotName);
                             break;
                         }
                         else
                         {
-                            System.out.println("NOPE");
-
+                            System.out.println("ID uncrecognized");
+                            break;
                         }
-
-
-
                     }
                     break;
                 case "6":
@@ -108,8 +98,6 @@ public class Main {
                     System.out.println("WRONG INPUT, TRY AGAIN");
             }
         }
-
-
     }
 
     public static void printMainMenu() {
@@ -121,7 +109,6 @@ public class Main {
         System.out.println("5: Rent a ship");
         System.out.println("6: Return a ship");
         System.out.println("7: Exit");
-
         System.out.println("\nChoose an option:");
     }
 
@@ -131,7 +118,7 @@ public class Main {
             System.out.println(i + ". " + type);
             i++;
         }
-        System.out.println("Choose a ship type!");
+        System.out.println("Choose a ship type:");
     }
 }
 

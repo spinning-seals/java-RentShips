@@ -47,4 +47,16 @@ public class Ship
     public ShipStatus getStatus() {
         return status;
     }
+
+    public void setPilot(String pilot)
+    {
+        this.pilot = pilot;
+    }
+
+    public void setStatus(ShipStatus status)
+    {
+        this.status = status;
+    }
 }
+
+
