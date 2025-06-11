@@ -20,7 +20,6 @@ public class ShipFleetManager {
         String newShipID = ShipIdGenerator.getInstance().generateId(type);
         int price = type.getShipTypePrice();
         Ship newShip = new Ship(newShipID, type, pilotName, price, status);
-        ;
         shipFleet.put(newShipID, newShip);
     }
 

@@ -69,14 +69,42 @@ public class Main {
                         String canRentedShipsChoiceID = scanRentedShipsChoice.nextLine();
 
                         if(myFleet.shipFleet.containsKey(canRentedShipsChoiceID)) {
+                            if(myFleet.shipFleet.get(canRentedShipsChoiceID).getStatus().equals(ShipStatus.RENTED))
+                            {
+                                System.out.println("ERROR: That ships is already rented by " + myFleet.shipFleet.get(canRentedShipsChoiceID).getPilot());
+                                break;
+                            }
                             System.out.println("SHIP RENTED");
                             Ship rentedShip = myFleet.shipFleet.get(canRentedShipsChoiceID);
                             rentedShip.setStatus(ShipStatus.RENTED);
-                            System.out.println("Who will rent the "+rentedShip+"? Enter first name and last name!");
+                            System.out.println("Who will rent the "+rentedShip.getType()+"? Enter first name and last name!");
                             Scanner scanPilotName = new Scanner(System.in);
                             String pilotName = scanPilotName.nextLine();
                             rentedShip.setPilot(pilotName);
-                            System.out.println(rentedShip + " rented by: "+pilotName);
+                            System.out.println(rentedShip.getType() + " rented by: "+pilotName);
+                            break;
+                        }
+                        else
+                        {
+                            System.out.println("ID unrecognized");
+                            break;
+                        }
+                    }
+                    break;
+                case "6":
+                    boolean chooseShipReturn = true;
+                    while(chooseShipReturn) {
+                        System.out.println("All rented ships:");
+                        myFleet.listShipsByStatus(ShipStatus.RENTED);
+                        Scanner scanRentedShipsReturn = new Scanner(System.in);
+                        System.out.println("Enter rented ship ID");
+                        String canRentedShipsChoiceID = scanRentedShipsReturn.nextLine();
+
+                        if(myFleet.shipFleet.containsKey(canRentedShipsChoiceID)) {
+                            System.out.println("RENTED SHIP RETURNED");
+                            Ship rentedShip = myFleet.shipFleet.get(canRentedShipsChoiceID);
+                            rentedShip.setStatus(ShipStatus.FREE);
+                            rentedShip.setPilot("N/A");
                             break;
                         }
                         else
@@ -85,9 +113,6 @@ public class Main {
                             break;
                         }
                     }
-                    break;
-                case "6":
-                    System.out.println("You return a ship.");
                     break;
                 case "7":
                     System.out.println("BYE");
@@ -121,8 +146,3 @@ public class Main {
         System.out.println("Choose a ship type:");
     }
 }
-
-
-
-
-
