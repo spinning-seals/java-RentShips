@@ -3,7 +3,7 @@ import org.w3c.dom.ls.LSOutput;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter. Sounds good!
 public class Main {
 
 
